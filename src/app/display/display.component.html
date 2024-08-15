@@ -1,0 +1,26 @@
+<h1>HTTP Cient</h1>
+
+<!-- <button (click)="show()">Fetch Data</button> -->
+<br /><br />
+<h4 *ngIf="status">{{ status }}</h4>
+<h4 *ngIf="apiData.length == 0">No Data to display</h4>
+
+<div class="dataContainer">
+  <ng-container *ngIf="apiData">
+    <div class="product" *ngFor="let data of apiData">
+      <img
+        [src]="data.image"
+        alt="Product Image"
+        width="100px"
+        height="100px"
+      />
+      <h2>{{ data.title }}</h2>
+      <p class="price">${{ data.price }}</p>
+      <p class="description">{{ data.description }}</p>
+      <p class="category">Category: {{ data.category }}</p>
+      <p class="rating">
+        Rating: {{ data.rating.rate }} ({{ data.rating.count }})
+      </p>
+    </div>
+  </ng-container>
+</div>

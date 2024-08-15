@@ -11,7 +11,7 @@ export class ApiCallService {
 
   getData(): Observable<IDisplay[]> {
     return this._http
-      .get<IDisplay[]>('https://ffakestoreapi.com/products')
+      .get<IDisplay[]>('https://fakestoreapi.com/products')
       .pipe(
         map((res: IDisplay[]) => {
           return res;

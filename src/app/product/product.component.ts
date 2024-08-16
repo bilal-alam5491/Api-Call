@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ApiCallService } from '../api-call.service';
 import { IProduct } from './productInterface';
 
@@ -14,8 +14,13 @@ export class ProductComponent implements OnInit {
 
   constructor(
     private _productService: ApiCallService,
-    private _activatedRoute: ActivatedRoute
+    private _activatedRoute: ActivatedRoute,
+    private _router: Router
   ) {}
+
+  backButton() {
+    this._router.navigate(['/display']);
+  }
 
   ngOnInit(): void {
     let product_code = this._activatedRoute.snapshot.params['productCode'];

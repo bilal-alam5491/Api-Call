@@ -8,6 +8,11 @@
 <div class="dataContainer">
   <ng-container *ngIf="apiData">
     <div class="product" *ngFor="let data of apiData">
+      <p>
+        <a [routerLink]="['/display', data.id]">
+          {{ data.id }}
+        </a>
+      </p>
       <img
         [src]="data.image"
         alt="Product Image"

@@ -1,0 +1,17 @@
+<h1 *ngIf="status" style="text-align: center;">{{ status }}</h1> <!-- Display status message -->
+
+<div *ngIf="!status" class="product-container"> <!-- Only display product if there's no status message -->
+  <div class="product-image">
+    <img [src]="product.image" alt="{{ product.title }}" />
+  </div>
+  <div class="product-details">
+    <h2 class="product-title">{{ product.title }}</h2>
+    <p class="product-category">Category: {{ product.category }}</p>
+    <p class="product-description">{{ product.description }}</p>
+    <p class="product-price">$ {{ product.price }}</p>
+    <div class="product-rating">
+      <span>Rating: {{ product.rating.rate }}</span>
+      <span>({{ product.rating.count }} reviews)</span>
+    </div>
+  </div>
+</div>

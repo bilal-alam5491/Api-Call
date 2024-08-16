@@ -10,16 +10,26 @@ export class ApiCallService {
   constructor(private _http: HttpClient) {}
 
   getData(): Observable<IDisplay[]> {
-    return this._http
-      .get<IDisplay[]>('https://fakestoreapi.com/products')
-      .pipe(
-        map((res: IDisplay[]) => {
-          return res;
-        }),
-        catchError((err) => {
-          console.error('Error fetching data:', err);
-          return throwError(() => err); 
-        })
-      );
+    return this._http.get<IDisplay[]>('https://fakestoreapi.com/products').pipe(
+      map((res: IDisplay[]) => {
+        return res;
+      }),
+      catchError((err) => {
+        console.error('Error fetching data:', err);
+        return throwError(() => err);
+      })
+    );
+  }
+
+  getDataPerId(id: string): Observable<any> {
+    return this._http.get(`https://fakestoreapi.com/products/${id}`).pipe(
+      map((res) => {
+        return res;
+      }),
+      catchError((err) => {
+        console.error('Error fetching data:', err);
+        return throwError(() => err);
+      })
+    );
   }
 }

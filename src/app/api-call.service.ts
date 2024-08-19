@@ -22,7 +22,7 @@ export class ApiCallService {
   }
 
   getDataPerId(id: string): Observable<any> {
-    return this._http.get(`https://fakestoreapi.com/products/${id}`).pipe(
+    return this._http.get(`https://fakestoreapi.com/productss/${id}`).pipe(
       map((res) => {
         return res;
       }),

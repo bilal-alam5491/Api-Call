@@ -1,6 +1,16 @@
-<h1 *ngIf="status" style="text-align: center;">{{ status }}</h1> <!-- Display status message -->
+<input type="button" value="Back to All Products" (click)="backButton()" />
+<input
+  type="button"
+  value="Cancel Request"
+  (click)="cancelRequest()"
+  *ngIf="!subscription.closed"
+/>
 
-<div *ngIf="!status" class="product-container"> <!-- Only display product if there's no status message -->
+<h1 *ngIf="status" style="text-align: center">{{ status }}</h1>
+<!-- Display status message -->
+
+<div *ngIf="!status" class="product-container">
+  <!-- Only display product if there's no status message -->
   <div class="product-image">
     <img [src]="product.image" alt="{{ product.title }}" />
   </div>
@@ -15,6 +25,4 @@
     </div>
   </div>
 </div>
-<br>
-
-<input type="button" value="All Products" (click)="backButton()">
+<br />
